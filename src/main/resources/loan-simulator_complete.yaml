@@ -10,6 +10,9 @@ info:
     email: hilbert.digenio.dev@gmail.com
 
 servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/hil-beer-t/herupuAPi/0.0.1
   - description: local host
     url: http://localhost:8080
 
@@ -219,6 +222,7 @@ components:
         - status
         - income
         - password
+        - created_at
         - address
       properties:
         client_id:
@@ -239,11 +243,54 @@ components:
         password:
           type: string
           format: password
-        address:
+        created_at:
           type: string
-        loan_id:
-          type: integer
-          format: int32
+          format: date-time
+        address:
+          type: object
+          properties:
+            address_id:
+              type: integer
+              format: int32
+            city:
+              type: string
+            state:
+              type: string
+            zip_code:
+              type: string
+            district:
+              type: string
+            complement:
+              type: string
+            client_id:
+              type: integer
+              format: int32
+        loan:
+          type: object
+          properties:
+            loan_id:
+              type: integer
+              format: int32
+            value:
+              type: integer
+              format: int64
+            num_months:
+              type: integer
+              format: int32
+            status:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+            initiated_at:
+              type: string
+              format: date-time
+            signed_at:
+              type: string
+              format: date-time
+            client_id:
+              type: integer
+              format: int32
 
     loan:
       description: This is a Loan model
@@ -253,6 +300,7 @@ components:
         - value
         - num_months
         - status
+        - created_at
         - client_id
       properties:
         loan_id:
@@ -265,6 +313,46 @@ components:
           type: integer
           format: int32
         status:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        initiated_at:
+          type: string
+          format: date-time
+        signed_at:
+          type: string
+          format: date-time
+        client_id:
+          type: integer
+          format: int32
+
+
+    address:
+      description: This is a Address model
+      type: object
+      required:
+        - address_id
+        - city
+        - state
+        - zip_code
+        - district
+        - complement
+        - client_id
+
+      properties:
+        address_id:
+          type: integer
+          format: int32
+        city:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        district:
+          type: string
+        complement:
           type: string
         client_id:
           type: integer
