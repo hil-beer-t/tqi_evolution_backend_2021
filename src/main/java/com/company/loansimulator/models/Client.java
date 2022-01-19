@@ -1,4 +1,4 @@
-package com.company.loansimulator.Models;
+package com.company.loansimulator.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -31,7 +31,7 @@ public class Client {
 
     private String password;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "client" )
     private List<LoanSim> loanSims = new ArrayList<>();
 

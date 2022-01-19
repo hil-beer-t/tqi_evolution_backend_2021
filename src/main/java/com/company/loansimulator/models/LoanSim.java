@@ -1,10 +1,9 @@
-package com.company.loansimulator.Models;
+package com.company.loansimulator.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.time.Month;
 
 @Entity
 @Table(name = "tb_loan_sim")
@@ -15,7 +14,7 @@ public class LoanSim {
     private Long id;
 
     @Column(unique = true)
-    private Integer cod;
+    private String cod;
 
     private LoanStatus status;
 
@@ -29,6 +28,7 @@ public class LoanSim {
 
     private Long value;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
@@ -44,7 +44,7 @@ public class LoanSim {
     public LoanSim() {
     }
 
-    public LoanSim(Long id, Integer cod, LoanStatus status, Months firstMonth, Integer numMonths, Instant moment, Integer bestDay, Long value, Client client) {
+    public LoanSim(Long id, String cod, LoanStatus status, Months firstMonth, Integer numMonths, Instant moment, Integer bestDay, Long value, Client client) {
         this.id = id;
         this.cod = cod;
         this.status = status;
@@ -56,11 +56,11 @@ public class LoanSim {
         this.client = client;
     }
 
-    public Integer getCod() {
+    public String getCod() {
         return cod;
     }
 
-    public void setCod(Integer cod) {
+    public void setCod(String cod) {
         this.cod = cod;
     }
 

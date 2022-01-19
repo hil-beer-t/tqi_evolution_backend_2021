@@ -1,4 +1,4 @@
-package com.company.loansimulator.Models;
+package com.company.loansimulator.models;
 
 public enum LoanStatus {
     APPROVED,
