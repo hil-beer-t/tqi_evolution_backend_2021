@@ -14,6 +14,9 @@ public class LoanSim {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(unique = true)
+    private Integer cod;
+
     private LoanStatus status;
 
     private Months firstMonth;
@@ -24,14 +27,11 @@ public class LoanSim {
 
     private Integer bestDay;
 
+    private Long value;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
-
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "loan_id")
-    private Loan loan;
 
     public Long getId() {
         return id;
@@ -44,23 +44,24 @@ public class LoanSim {
     public LoanSim() {
     }
 
-    public LoanSim(Long id, LoanStatus status, Months firstMonth, Integer numMonths, Instant moment, Integer bestDay, Client client, Loan loan) {
+    public LoanSim(Long id, Integer cod, LoanStatus status, Months firstMonth, Integer numMonths, Instant moment, Integer bestDay, Long value, Client client) {
         this.id = id;
+        this.cod = cod;
         this.status = status;
         this.firstMonth = firstMonth;
         this.numMonths = numMonths;
         this.moment = moment;
         this.bestDay = bestDay;
+        this.value = value;
         this.client = client;
-        this.loan = loan;
     }
 
-    public Client getClient() {
-        return client;
+    public Integer getCod() {
+        return cod;
     }
 
-    public Loan getLoan() {
-        return loan;
+    public void setCod(Integer cod) {
+        this.cod = cod;
     }
 
     public LoanStatus getStatus() {
@@ -101,5 +102,21 @@ public class LoanSim {
 
     public void setBestDay(Integer bestDay) {
         this.bestDay = bestDay;
+    }
+
+    public Long getValue() {
+        return value;
+    }
+
+    public void setValue(Long value) {
+        this.value = value;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }
