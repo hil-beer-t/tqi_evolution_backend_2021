@@ -1,5 +1,7 @@
 package com.company.loansimulator.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,7 @@ public class Client {
 
     private String password;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "client" )
     private List<LoanSim> loanSims = new ArrayList<>();
 

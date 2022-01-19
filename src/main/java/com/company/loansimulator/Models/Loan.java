@@ -1,5 +1,7 @@
 package com.company.loansimulator.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,6 +17,7 @@ public class Loan {
 
     private Long value;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "loan")
     private LoanSim loanSim;
 

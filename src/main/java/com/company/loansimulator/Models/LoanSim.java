@@ -24,7 +24,7 @@ public class LoanSim {
 
     private Integer bestDay;
 
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
