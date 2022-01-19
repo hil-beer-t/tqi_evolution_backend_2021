@@ -1,0 +1,271 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: Loan Simulator
+  description: Simulate a loan for a potential client
+
+  contact:
+    name: Hilbert Digenio
+    url: https://github.com/hil-beer-t
+    email: hilbert.digenio.dev@gmail.com
+
+servers:
+  - description: local host
+    url: http://localhost:8080
+
+paths:
+
+  /client:
+    post:
+      summary: Creates a client
+      description: ""
+      tags:
+        - "Client"
+      operationId: createClient
+      requestBody:
+        description: Client data for creation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/client'
+      responses:
+        "201":
+          description: CREATED
+        "418":
+          description: I'M A TEAPOT
+
+    get:
+      summary: Get all clients
+      tags:
+        - "Client"
+      description: Only for testing, SHOULD NOT exist in production env
+      operationId: getAllClients
+      responses:
+        "200":
+          description: Ok. It contains entities in response.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/client'
+        "400":
+          description: BAD REQUEST
+        "401":
+          description: UNAUTH
+
+  /client/{id}:
+    get:
+      summary: Gets one client
+      description: Gets one client by id
+      tags:
+        - "Client"
+      operationId: getClientById
+      parameters:
+        - name: id
+          description: client id
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Ok. It contains entities in response.
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/client'
+
+    delete:
+      summary: Deletes a client
+      tags:
+        - "Client"
+      operationId: deleteClient
+      parameters:
+        - name: id
+          description: client id
+          schema:
+            type: string
+          in: path
+          required: true
+
+      responses:
+        "204":
+          description: Done with no entity in response.
+
+  /client/{id}/loan:
+    post:
+      summary: Creates a loan
+      description: "Create a loan for a client"
+      tags:
+        - "Client"
+      operationId: createLoan
+      parameters:
+        - name: id
+          description: client id
+          schema:
+            type: string
+          in: path
+          required: true
+      requestBody:
+        description: Loan data for creation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/loan'
+      responses:
+        "201":
+          description: CREATED
+
+  /loan:
+    post:
+      summary: Creates a loan
+      description: "Only for testing, SHOULD NOT exist in production env"
+      tags:
+        - "Loan"
+      operationId: createLoanDevEnv
+      requestBody:
+        description: Loan data for creation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/loan'
+      responses:
+        "201":
+          description: CREATED
+        "400":
+          description: BAD REQUEST
+
+    get:
+      summary: Get all loans
+      tags:
+        - "Loan"
+      description: Only for testing, SHOULD NOT exist in production env
+      operationId: getAllLoans
+      responses:
+        "200":
+          description: Ok. It contains entities in response.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/loan'
+        "400":
+          description: BAD REQUEST
+        "401":
+          description: UNAUTH
+
+  /loan/{id}:
+    get:
+      summary: Gets one loan
+      description: Gets one loan by id
+      tags:
+        - "Loan"
+      operationId: getLoanById
+      parameters:
+        - name: id
+          description: loan id
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Ok. It contains entities in response.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/loan'
+    patch:
+      summary: patch status of one loan
+      operationId: patchLoanById
+      tags:
+        - "Loan"
+      description: Only for testing, SHOULD NOT exist in production env. Modify loan status to REJECTED.
+      parameters:
+        - name: id
+          description: loan id
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        "204":
+          description: Ok. The server has successfully fulfilled the request. No content.
+        "400":
+          description: BAD REQUEST
+        "418":
+          description: I'M A TEAPOT
+
+components:
+  schemas:
+    client:
+      description: This is a Client model
+      type: object
+      required:
+        - client_id
+        - cpf
+        - rg
+        - name
+        - email
+        - status
+        - income
+        - password
+        - address
+      properties:
+        client_id:
+          type: integer
+          format: int32
+        cpf:
+          type: string
+        rg:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        status:
+          type: string
+        income:
+          type: integer
+        password:
+          type: string
+          format: password
+        address:
+          type: string
+        loan_id:
+          type: integer
+          format: int32
+
+    loan:
+      description: This is a Loan model
+      type: object
+      required:
+        - loan_id
+        - value
+        - num_months
+        - status
+        - client_id
+      properties:
+        loan_id:
+          type: integer
+          format: int32
+        value:
+          type: integer
+          format: int64
+        num_months:
+          type: integer
+          format: int32
+        status:
+          type: string
+        client_id:
+          type: integer
+          format: int32
