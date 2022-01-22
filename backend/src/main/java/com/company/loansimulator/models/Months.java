@@ -1,60 +1,60 @@
 package com.company.loansimulator.models;
 
 public enum Months {
-    JANUARY,
+    Janeiro,
     /**
      * The singleton instance for the month of February with 28 days, or 29 in a leap year.
      * This has the numeric value of {@code 2}.
      */
-    FEBRUARY,
+    Fevereiro,
     /**
      * The singleton instance for the month of March with 31 days.
      * This has the numeric value of {@code 3}.
      */
-    MARCH,
+    Março,
     /**
      * The singleton instance for the month of April with 30 days.
      * This has the numeric value of {@code 4}.
      */
-    APRIL,
+    Abril,
     /**
      * The singleton instance for the month of May with 31 days.
      * This has the numeric value of {@code 5}.
      */
-    MAY,
+    Maio,
     /**
      * The singleton instance for the month of June with 30 days.
      * This has the numeric value of {@code 6}.
      */
-    JUNE,
+    Junho,
     /**
      * The singleton instance for the month of July with 31 days.
      * This has the numeric value of {@code 7}.
      */
-    JULY,
+    Julho,
     /**
      * The singleton instance for the month of August with 31 days.
      * This has the numeric value of {@code 8}.
      */
-    AUGUST,
+    Agosto,
     /**
      * The singleton instance for the month of September with 30 days.
      * This has the numeric value of {@code 9}.
      */
-    SEPTEMBER,
+    Setembro,
     /**
      * The singleton instance for the month of October with 31 days.
      * This has the numeric value of {@code 10}.
      */
-    OCTOBER,
+    Outubro,
     /**
      * The singleton instance for the month of November with 30 days.
      * This has the numeric value of {@code 11}.
      */
-    NOVEMBER,
+    Novembro,
     /**
      * The singleton instance for the month of December with 31 days.
      * This has the numeric value of {@code 12}.
      */
-    DECEMBER;
+    Dezembro;
 }
