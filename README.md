@@ -5,6 +5,8 @@ Simulates an application for loans.
 
 _In development, consider it as suggestion._
 
+**See branch _test_ for updates (v0.0.2). Branch _main_ unchanged**
+
 ## Description
 
 A client should **_sign up_** or **_sign in_**. Take an **_overview_** of your loans if not have any, should have the possibility

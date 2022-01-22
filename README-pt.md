@@ -5,6 +5,9 @@ Simula uma aplicação para empréstimos.
 
 _Em desenvolvimento, considere isso como uma sugestão._
 
+**Veja a branch _test_ para atualizações (v0.0.2). Branch _main_ inalterada.**
+
+
 ## Descrição
 
 Um cliente deverá fazer login ou se cadastrar. Terá uma visão geral dos seus empréstimos, detalhes e situação.
