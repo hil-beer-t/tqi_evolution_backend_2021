@@ -6,11 +6,11 @@ function Navbar() {
         <header>
             <nav className="container">
                 <div className="loansim-nav-content">
-                    <h1>Loan Simulator</h1>
-                    <a href="https://github.com/hil-beer-t" target="_blank" rel="noreferrer">
+                    <h1>Company </h1>
+                    <a className="a-navbar" href="https://github.com/hil-beer-t" target="_blank" rel="noreferrer">
                         <div className="loansim-contact-container">
                             <MoneyIcon />
-                            <p className="loansim-contact-link">Loan Simulator</p>
+                            <p className="loansim-contact-link">LoanSim</p>
                         </div>
                     </a>
                 </div>

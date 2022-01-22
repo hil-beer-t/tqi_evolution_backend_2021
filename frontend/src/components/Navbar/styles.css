@@ -32,3 +32,8 @@ a, a:hover {
     text-decoration: none;
     color: unset;
 }
+
+.a-navbar, .a-navbar:hover{
+    text-decoration: none;
+    color: unset;
+}

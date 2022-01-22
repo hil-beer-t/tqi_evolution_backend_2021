@@ -1,0 +1,31 @@
+.h1-feed {
+    margin: 15px
+}
+
+.card-feed {
+    width: 800px;
+    margin: 30px;
+}
+
+.card-body-feed {
+    width: 800px
+}
+
+.h4-feed {
+    margin-bottom: 20px
+}
+
+.p-feed{
+    margin-bottom: 20px
+}
+
+.btn-feed {
+    margin: 0px;
+    border-radius: 1px;
+}
+
+.svg-feed {
+    margin-left: 0;
+    width: 20px;
+    height: 20px;
+}
