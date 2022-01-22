@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Listing from "./pages/Feed";
+import Loan from "./pages/Loan";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/listing" element={<Listing/>} />
             <Route path="/register" element={<Register/>} />
             <Route path="/login" element={<Login/>} />
+            <Route path="/loan" element={<Loan/>} />
         </Routes>
     </BrowserRouter>
   );

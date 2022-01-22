@@ -23,7 +23,7 @@ function MovieCard({ loanSim } : Props) {
         <div className="card card-feed">
             <div className="card-body card-body-feed">
                 <h4 className="card-title card-title-feed">Cód: {loanSim.cod} </h4>
-                <p className="card-text">Valor: {loanSim.value} </p>
+                <p className="card-text">Valor: R${loanSim.value},00 </p>
                 <div className="accordion" role="tablist" id="accordion-1">
                     <div className="accordion-item">
                         <h2 className="accordion-header" role="tab">

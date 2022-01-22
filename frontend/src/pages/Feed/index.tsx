@@ -2,7 +2,6 @@ import './assets/bootstrap/css/bootstrap.min.css';
 import './assets/css/List-item.css';
 import './assets/css/styles.css';
 import {useEffect, useState} from "react";
-import {Collapse} from "react-bootstrap";
 import axios from "axios";
 import {Client} from "../../types/loanSimApi";
 import {BASE_URL} from "../../utils/requests";

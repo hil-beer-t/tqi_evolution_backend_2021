@@ -1,0 +1,9 @@
+.h2-loan {
+    color: var(--bs-green);
+}
+.btn-loan {
+    color: var(--bs-white);background: #198754;
+}
+.image-loan {
+    background: url(../img/iconmonstr-banknote-15-240.png), repeating-linear-gradient(80deg, var(--bs-green) 0%, rgb(92,170,134) 34%, rgb(178,215,197) 74%, white 100%);
+}
