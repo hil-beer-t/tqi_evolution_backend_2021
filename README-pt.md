@@ -25,16 +25,23 @@ Backend
 
 Frontend
 * Yarn.
+* Npm.
 
-### Rodando o backend
+### Iniciando o backend
 
 * No perfil de teste, o backend utiliza o banco de dados em memória [H2](https://www.h2database.com/html/main.html).
 * Apenas inicie o Spring.
 ```
 mvn spring-boot:run
 ```
-### Rodando o frontend
+### Iniciando o frontend
 
+Instala as dependências.
+```
+npm install
+```
+
+Inicia o react.
 ```
 yarn start
 ```

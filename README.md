@@ -35,6 +35,11 @@ mvn spring-boot:run
 ```
 ### Running frontend
 
+Install dependencies.
+```
+npm install
+```
+Start react. 
 ```
 yarn start
 ```
