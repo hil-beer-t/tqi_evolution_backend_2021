@@ -13,7 +13,10 @@ function App() {
         <Navbar />
         <Routes>
             <Route path="/" element={<Home/>} />
-            <Route path="/listing" element={<Listing/>} />
+            <Route path="/listing/" >
+                <Route path=":clientId" element={<Listing/>}/>
+                <Route path=":clientId/create-loan-sim" element={<Loan/>}/>
+            </Route>
             <Route path="/register" element={<Register/>} />
             <Route path="/login" element={<Login/>} />
             <Route path="/loan" element={<Loan/>} />

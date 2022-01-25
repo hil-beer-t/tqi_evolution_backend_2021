@@ -6,16 +6,20 @@ import axios from "axios";
 import {Client} from "../../types/loanSimApi";
 import {BASE_URL} from "../../utils/requests";
 import LoanCard from "../../components/LoanCard";
+import {useParams} from "react-router";
+import {Link} from "react-router-dom";
 
 
 function Listing() {
+
+    let {clientId} = useParams();
 
     const [page, setPage] = useState<Client>({
         address: "", cpf: "", email: "", id: 0, income: 0, loanSims: [], name: "", password: "", rg: ""
     });
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/clients/1`)
+        axios.get(`${BASE_URL}/clients/${clientId}`)
             .then(response => {
                 const data = response.data as Client;
                 setPage(data);
@@ -33,15 +37,15 @@ function Listing() {
                 <div className="collapse navbar-collapse" id="navcol-1">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link active a-feed" href="#">
+                            <Link className="nav-link active a-feed" to={`/listing/${clientId}/create-loan-sim`}>
                                 Nova simulação
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
                                      viewBox="0 0 16 16" className="bi bi-plus svg-feed"
                                 >
                                     <path
-                                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                                 </svg>
-                            </a></li>
+                            </Link></li>
                         <li className="nav-item"></li>
                         <li className="nav-item"></li>
                     </ul>

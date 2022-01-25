@@ -2,8 +2,10 @@ package com.company.loansimulator.controllers;
 
 import com.company.loansimulator.models.Client;
 import com.company.loansimulator.models.LoanSim;
+import com.company.loansimulator.models.LoanStatus;
 import com.company.loansimulator.repositories.ClientRepository;
 import com.company.loansimulator.repositories.LoanSimRepository;
+import com.company.loansimulator.utils.GenerateCod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -54,10 +56,12 @@ public class ClientControllers {
     @PostMapping(value = "/{id}/create-loan-sim")
     public ResponseEntity<LoanSim> createLoanSim(@RequestBody LoanSim obj, @PathVariable Long id){
 
-        // TODO: create YEAR + MONTH + DAY loanSim code
         // TODO: autenticate
 
         Client client = clientRepository.findById(id).get();
+        GenerateCod generateCod = new GenerateCod(client.getId());
+        obj.setCod(generateCod.getCod());
+        obj.setStatus(LoanStatus.WAITING_FOR_APPROVAL);
         obj.setClient(client);
         obj = loanSimRepository.save(obj);
 

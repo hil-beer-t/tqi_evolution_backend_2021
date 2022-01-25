@@ -3,6 +3,7 @@ package com.company.loansimulator;
 import com.company.loansimulator.models.*;
 import com.company.loansimulator.repositories.ClientRepository;
 import com.company.loansimulator.repositories.LoanSimRepository;
+import com.company.loansimulator.utils.GenerateCod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
